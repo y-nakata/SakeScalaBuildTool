@@ -74,11 +74,19 @@ object PathSpec extends Specification {
     "joined and toString()" should {
         "convert the path's list[Any] into a separator-separated string" in {
             val list = List(1, 2.3, "foo", 'foo, List("x", "y"), ("a", 'b))
-            sake.util.Path(list).joined mustEqual "1:2.3:foo:'foo:x:y:(a,'b)"
+	    if (Environment.environment.isWindows()) {
+                sake.util.Path(list).joined mustEqual "1;2.3;foo;'foo;x;y;(a,'b)"
+            } else {
+                sake.util.Path(list).joined mustEqual "1:2.3:foo:'foo:x:y:(a,'b)"
+            }
         }
         "use the user-specified or default separator" in {
             val list = List(1, 2.3, "foo", 'foo, List("x", "y"), ("a", 'b))
-            sake.util.Path(list).joined mustEqual "1:2.3:foo:'foo:x:y:(a,'b)"
+	    if (Environment.environment.isWindows()) {
+                sake.util.Path(list).joined mustEqual "1;2.3;foo;'foo;x;y;(a,'b)"
+            } else {
+                sake.util.Path(list).joined mustEqual "1:2.3:foo:'foo:x:y:(a,'b)"
+            }
             sake.util.Path(list)("|").joined mustEqual "1|2.3|foo|'foo|x|y|(a,'b)"
         }
         "comvert an empty path into the empty string" in {
@@ -88,8 +96,13 @@ object PathSpec extends Specification {
             sake.util.Path("foo").joined mustEqual "foo"
         }
         "comvert a 2 or more elements path into a string with each element, separated by the separator" in {
-            sake.util.Path(1.23, "foo").joined mustEqual "1.23:foo"
-            sake.util.Path(1.23, "foo", 1, 'a).joined mustEqual "1.23:foo:1:'a"
+	    if (Environment.environment.isWindows()) {
+                sake.util.Path(1.23, "foo").joined mustEqual "1.23;foo"
+                sake.util.Path(1.23, "foo", 1, 'a).joined mustEqual "1.23;foo;1;'a"
+            } else {
+                sake.util.Path(1.23, "foo").joined mustEqual "1.23:foo"
+                sake.util.Path(1.23, "foo", 1, 'a).joined mustEqual "1.23:foo:1:'a"
+            }
         }
     }
     

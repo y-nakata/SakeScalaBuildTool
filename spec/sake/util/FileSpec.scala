@@ -272,7 +272,8 @@ object FileSpec extends Specification {
         val f2 = new JavaFileWrapper("toss.txt")
         val reader = new JBufferedReader(f2.reader)
         reader.readLine() mustEqual "hello world!"
-        f2.delete
+        reader.close()
+        f2.delete mustEqual true
     }
     
     "File.writer" should {

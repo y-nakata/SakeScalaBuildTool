@@ -11,7 +11,7 @@ object CommandRunnerSpec extends Specification {
             new CommandRunner("") must throwA[BuildError]
         }
 
-        "accept a list of command argumets" in {
+        "accept a list of command arguments" in {
             val args = List("-e", "println(List(1,2.0,\"three\"))")
             val runner = new CommandRunner("scala", args)
             runner.arguments mustEqual args
@@ -33,8 +33,7 @@ object CommandRunnerSpec extends Specification {
         def doInputTextOutputFile(outputFile: File) {
             val environment = Some(Map[Any, Any]('inputText -> """Hello
                 World""", 'outputFile -> outputFile))
-            val runner = new CommandRunner("cat", Nil, environment)
-            runner.environment mustEqual environment
+            val runner = new CommandRunner(Environment.environment.catCommand, Nil, environment)
             runner.run()
             testOutput(outputFile)
         }
@@ -55,7 +54,7 @@ object CommandRunnerSpec extends Specification {
             val reader = new BufferedReader(file.reader)
             while(true) {
                 reader.readLine() match {
-                    case null => return sb.toString()
+                    case null => {reader.close();return sb.toString()}
                     case line => sb.append(line+Environment.environment.lineSeparator)
                 }
             }
@@ -79,7 +78,7 @@ object CommandRunnerSpec extends Specification {
             val tempFile = makeTempFileWithContent(new FakeFile("tossInput.txt"))
             val outputFile = new FakeFile("toss.out")
             val environment = Some(Map[Any, Any]('inputFile -> tempFile, 'outputFile -> outputFile))
-            val runner = new CommandRunner("cat", Nil, environment)
+            val runner = new CommandRunner(Environment.environment.catCommand, Nil, environment)
             runner.environment mustEqual environment
             runner.run()
             testOutput(outputFile)
@@ -90,7 +89,7 @@ object CommandRunnerSpec extends Specification {
             val tempFile = makeTempFileWithContent(inFile)
             val outputFile = new FakeFile("toss.out")
             val environment = Some(Map[Any, Any]('inputFile -> tempFile, 'outputFile -> outputFile))
-            val runner = new CommandRunner("cat", Nil, environment)
+            val runner = new CommandRunner(Environment.environment.catCommand, Nil, environment)
             runner.environment mustEqual environment
             runner.run()
             testOutput(outputFile)
@@ -109,7 +108,11 @@ object CommandRunnerSpec extends Specification {
 
         "treat any other environment option as an environment variable to set" in {
             val environment = Some(Map[Any, Any]('directory -> "lib", "FOO_BAR" -> "foobar"))
-            val runner = new CommandRunner("pwd", Nil, environment)
+            val runner = if (Environment.environment.isWindows) {
+              new CommandRunner("cmd", List("/c", "cd"), environment)
+            } else {
+              new CommandRunner("pwd", Nil, environment)
+            }
             runner.environment mustEqual environment
             runner.processBuilder.environment.get("FOO_BAR") mustEqual "foobar"
         }
@@ -127,10 +130,20 @@ object CommandRunnerSpec extends Specification {
     protected def runSuccessfulTestCommand = {
         val outputFile = new FakeFile("toss.out")
         val environment = Some(Map[Any, Any]('directory -> "lib", 'outputFile -> outputFile))
-        val runner = new CommandRunner("pwd", Nil, environment)
+        val runner = if (Environment.environment.isWindows) {
+           new CommandRunner("cmd", List("/c", "cd"), environment)
+        } else {
+           new CommandRunner("pwd", Nil, environment)
+        }
+
         runner.environment mustEqual environment
         runner.run()
-        outputFile.writer.toString must be matching ("""sake/lib$""")
+        outputFile.writer.toString must be matching (
+                if (Environment.environment.isWindows) {
+                  """\\lib$"""
+                } else {
+                  """/lib$"""
+                })
     }    
 
     protected def runFailedTestCommand = {

@@ -13,12 +13,12 @@ class FilesFinder() {
         
         specs.foldLeft(List[String]()) { (all, spec) =>
             findFiles(spec) ::: all
-        }.removeDuplicates.reverse
+        }.distinct.reverse
     }
     
     protected def findFiles(spec: String):List[String] = {
         validateSpec(spec)
-        findFiles("", spec.split(Environment.environment.fileSeparator).toList)
+        findFiles("", makeSystemPath(spec).split(Environment.environment.fileSeparator.replace("\\", "\\\\")).toList)
     }
 
     // The lists are constructed to provide a reasonably natural order.
@@ -74,6 +74,11 @@ class FilesFinder() {
             case List("") => Nil
             case l => l
         }
+    }
+
+    def makeSystemPath(path:String):String = {
+      val file = new JavaFileWrapper(path)
+      file.javaFile.getPath()         
     }
 
     def exists(file: File):Boolean = file.exists

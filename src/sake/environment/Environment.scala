@@ -34,7 +34,8 @@ class Environment {
     val currentWorkingDirectory = Environment.getSystemProperty("user.dir")
     
     /**
-     * For convenience, the environment variables map is exposed explicitly, read only.
+     * For convenience, the full environment variables map is exposed as an
+     * immutable Scala (not Java) Map.
      */
     val environmentVariables = Environment.getSystemEnvironmentVariables
     
@@ -42,12 +43,20 @@ class Environment {
      * For convenience and to keep the system classpath consistent with any user changes,
      * the "classpath" is exposed explicitly as a List that is kept synchronized with the
      * system's value. Use standard list operations to change it. 
+     * We have also found it necessary to merge the environment variable CLASSPATH
+     * with the property, which apparently isn't done by the JVM by default.
      */
     def classpath: Path = {
+        val cp = if (Environment.combineCLASSPATHandSystemClassPath) {
+          Environment.getSystemProperty("java.class.path") + 
+                  pathSeparator + environmentVariables.getOrElse("CLASSPATH","")
+        } else {
+          Environment.getSystemProperty("java.class.path")
+        }
         val seq = for {
-            s <- Environment.getSystemProperty("java.class.path").split(pathSeparator)
+            s <- cp.split(pathSeparator)
         } yield s
-        Path(seq)(pathSeparator)
+        Path(seq.distinct)(pathSeparator)
     }
 
     /**
@@ -56,11 +65,30 @@ class Environment {
     def classpath_=(newPath: Path) = {
         Environment.setSystemProperty("java.class.path", newPath.joined)
     }
+
+    def isWindows() = {
+        Environment.getSystemProperty("os.name").startsWith("Windows")
+    }
+
+    def scalaCommand() = if (Environment.environment.isWindows) "scala.bat" else "scala"
+
+    def sakeCommand() = if (Environment.environment.isWindows) "sake.bat" else "sake"
+
+    def scalacCommand() = if (Environment.environment.isWindows) "scalac.bat" else "scalac"
+
+    def catCommand() = if (Environment.environment.isWindows) environmentVariables.getOrElse("SAKE_HOME", "") + "\\bin\\cat_cmd.bat" else "cat"
+
 }
 
 object Environment {
     
     val environment:Environment = new Environment()
+
+    /**
+     * It appears that the "java.class.path" does not include the environments
+     * CLASSPATH by default. If this variable is true, we combine the two.
+     */
+    var combineCLASSPATHandSystemClassPath = false
 
     /**
      * Returns a system property or "" if not defined. If you would prefer null for
@@ -74,7 +102,15 @@ object Environment {
     def setSystemProperty(key:String, value:String):Unit = System.setProperty(key, value)
     
     /**
-     * Returns the system environment, a map of variables.
+     * Returns the system environment, as an immutable Scala Map.
      */
-    def getSystemEnvironmentVariables = System.getenv()
+    def getSystemEnvironmentVariables = {
+      val map = scala.collection.mutable.HashMap.empty[String,String]
+      val iter = System.getenv().entrySet.iterator
+      while (iter.hasNext) {
+        val entry = iter.next
+          map += entry.getKey -> entry.getValue
+      }
+      map.toMap
+    }
 }

@@ -26,8 +26,14 @@ class CommandRunner(val command: String, val arguments: List[String], val enviro
         processBuilder.command(toJavaArrayList(command :: arguments))
         try {
             val process = processBuilder.start()
-            handleInputFor(process)
+            val inputStreamThread = new Thread() {
+               override def run {
+                 handleInputFor(process)
+               }
+            }
+            inputStreamThread.start
             handleOutputFor(process)
+            inputStreamThread.join
             getStatus(process)
         } catch {
             case th: Throwable => new Failed(Some(th), Some(th.getMessage()))
@@ -48,6 +54,7 @@ class CommandRunner(val command: String, val arguments: List[String], val enviro
                 case null => {
                     writer.flush()
                     writer.close()
+                    reader.close()
                     return
                 }
                 case line => {
@@ -58,12 +65,20 @@ class CommandRunner(val command: String, val arguments: List[String], val enviro
     }
     
     protected def handleOutputFor(process: Process) = {
+        var isConsole = false
         val writer: JWriter = fileOutputForProcess match {
-            case None => new JBufferedWriter(new JOutputStreamWriter(Console.out))
+            case None => {
+              isConsole = true
+              new JBufferedWriter(new JOutputStreamWriter(Console.out))
+            }
             case Some(f) => f.writer
         }
         val out = new JBufferedReader(new JInputStreamReader(process.getInputStream()))
         processCommandOutput(writer, out)
+        out.close
+        if (!isConsole) {
+          writer.close
+        }
     }
     
     protected def processCommandOutput(writer: JWriter, out: JBufferedReader): Unit = {
@@ -103,7 +118,7 @@ class CommandRunner(val command: String, val arguments: List[String], val enviro
         list.foldLeft(new java.util.ArrayList[String]()) { (l, s) => l.add(s.toString()); l }
 
     private def getStatus(process: Process) = process.waitFor() match {
-        case 0 => new Passed()
+        case 0     => new Passed()
         case i:Int => new Failed(Some(i))
     }
 }

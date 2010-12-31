@@ -1,6 +1,7 @@
 package sake.util
 
 import java.io.{StringReader => JStringReader, StringWriter => JStringWriter}
+import sake.environment._;
 
 class FakeFile(val path: String, exists2: Boolean, 
         val isDirectory2: Boolean, val contents2: List[String]) extends File {
@@ -47,46 +48,99 @@ class FakeFileForSpecs(path: String, exists: Boolean,
 }
 
 object FakeFileForSpecs {
-    val oneFakeFile = new FilesFinder() {
-        override def makeFile(path: String) = path match {
-            case "." => new FakeFileForSpecs(path, true, true, List("foo"))
-            case "foo" => new FakeFileForSpecs(path, true, true, List("bar1"))
-            case "foo/bar1" => new FakeFileForSpecs(path, true, true, List("ASpec.class"))
-            case "foo/bar1/ASpec.class" => new FakeFileForSpecs(path, true, false, Nil)
-        }
+  val oneFakeFile = if (Environment.environment.fileSeparator == "/") {
+    new FilesFinder() {
+      override def makeFile(path: String) = path match {
+        case "." => new FakeFileForSpecs(path, true, true, List("foo"))
+        case "foo" => new FakeFileForSpecs(path, true, true, List("bar1"))
+        case "foo/bar1" => new FakeFileForSpecs(path, true, true, List("ASpec.class"))
+        case "foo/bar1/ASpec.class" => new FakeFileForSpecs(path, true, false, Nil)
+      }
     }
-        
-    val fakeFilesFinder = new FilesFinder() {
-        override def makeFile(path: String) = path match {
-            case "." => new FakeFileForSpecs(path, true, true, List("foo"))
-            case "foo" => new FakeFileForSpecs(path, true, true, List("bar1", "bar2"))
-            case "foo/bar1" => new FakeFileForSpecs(path, true, true, List("A.class", "ASpec.class"))
-            case "foo/bar2" => new FakeFileForSpecs(path, true, true, List("BSpec.class", "B.class", "a"))
-            case "foo/bar1/A.class" => new FakeFileForSpecs(path, true, false, Nil)
-            case "foo/bar1/ASpec.class" => new FakeFileForSpecs(path, true, false, Nil)
-            case "foo/bar2/BSpec.class" => new FakeFileForSpecs(path, true, false, Nil)
-            case "foo/bar2/B.class" => new FakeFileForSpecs(path, true, false, Nil)
-            case "foo/bar2/a" => new FakeFileForSpecs(path, true, true, List("b", "ABSpec.class", "AB.class"))
-            case "foo/bar2/a/b" => new FakeFileForSpecs(path, true, true, List("c", "ABCSpec.class", "ABC.class"))
-            case "foo/bar2/a/ABSpec.class" => new FakeFileForSpecs(path, true, false, Nil)
-            case "foo/bar2/a/AB.class" => new FakeFileForSpecs(path, true, false, Nil)
-            case "foo/bar2/a/b/c" => new FakeFileForSpecs(path, true, true, Nil)
-            case "foo/bar2/a/b/ABCSpec.class" => new FakeFileForSpecs(path, true, false, Nil)
-            case "foo/bar2/a/b/ABC.class" => new FakeFileForSpecs(path, true, false, Nil)
-            case _ => new FakeFile(path)
-        }
+  } else {
+    new FilesFinder() {
+      override def makeFile(path: String) = path match {
+        case "." => new FakeFileForSpecs(path, true, true, List("foo"))
+        case "foo" => new FakeFileForSpecs(path, true, true, List("bar1"))
+        case "foo\\bar1" => new FakeFileForSpecs(path, true, true, List("ASpec.class"))
+        case "foo\\bar1\\ASpec.class" => new FakeFileForSpecs(path, true, false, Nil)
+      }
     }
+  }
 
-    val oneFakeFileExpected = List("foo/bar1/ASpec.class")
+  val fakeFilesFinder = new FilesFinder() {
+    override def makeFile(path: String) =
+      if (Environment.environment.fileSeparator == "/") {
+        path match {
+          case "." => new FakeFileForSpecs(path, true, true, List("foo"))
+          case "foo" => new FakeFileForSpecs(path, true, true, List("bar1", "bar2"))
+          case "foo/bar1" => new FakeFileForSpecs(path, true, true, List("A.class", "ASpec.class"))
+          case "foo/bar2" => new FakeFileForSpecs(path, true, true, List("BSpec.class", "B.class", "a"))
+          case "foo/bar1/A.class" => new FakeFileForSpecs(path, true, false, Nil)
+          case "foo/bar1/ASpec.class" => new FakeFileForSpecs(path, true, false, Nil)
+          case "foo/bar2/BSpec.class" => new FakeFileForSpecs(path, true, false, Nil)
+          case "foo/bar2/B.class" => new FakeFileForSpecs(path, true, false, Nil)
+          case "foo/bar2/a" => new FakeFileForSpecs(path, true, true, List("b", "ABSpec.class", "AB.class"))
+          case "foo/bar2/a/b" => new FakeFileForSpecs(path, true, true, List("c", "ABCSpec.class", "ABC.class"))
+          case "foo/bar2/a/ABSpec.class" => new FakeFileForSpecs(path, true, false, Nil)
+          case "foo/bar2/a/AB.class" => new FakeFileForSpecs(path, true, false, Nil)
+          case "foo/bar2/a/b/c" => new FakeFileForSpecs(path, true, true, Nil)
+          case "foo/bar2/a/b/ABCSpec.class" => new FakeFileForSpecs(path, true, false, Nil)
+          case "foo/bar2/a/b/ABC.class" => new FakeFileForSpecs(path, true, false, Nil)
+          case _ => new FakeFile(path)
+        }
+      } else {
+        path match {
+          case "." => new FakeFileForSpecs(path, true, true, List("foo"))
+          case "foo" => new FakeFileForSpecs(path, true, true, List("bar1", "bar2"))
+          case "foo\\bar1" => new FakeFileForSpecs(path, true, true, List("A.class", "ASpec.class"))
+          case "foo\\bar2" => new FakeFileForSpecs(path, true, true, List("BSpec.class", "B.class", "a"))
+          case "foo\\bar1\\A.class" => new FakeFileForSpecs(path, true, false, Nil)
+          case "foo\\bar1\\ASpec.class" => new FakeFileForSpecs(path, true, false, Nil)
+          case "foo\\bar2\\BSpec.class" => new FakeFileForSpecs(path, true, false, Nil)
+          case "foo\\bar2\\B.class" => new FakeFileForSpecs(path, true, false, Nil)
+          case "foo\\bar2\\a" => new FakeFileForSpecs(path, true, true, List("b", "ABSpec.class", "AB.class"))
+          case "foo\\bar2\\a\\b" => new FakeFileForSpecs(path, true, true, List("c", "ABCSpec.class", "ABC.class"))
+          case "foo\\bar2\\a\\ABSpec.class" => new FakeFileForSpecs(path, true, false, Nil)
+          case "foo\\bar2\\a\\AB.class" => new FakeFileForSpecs(path, true, false, Nil)
+          case "foo\\bar2\\a\\b\\c" => new FakeFileForSpecs(path, true, true, Nil)
+          case "foo\\bar2\\a\\b\\ABCSpec.class" => new FakeFileForSpecs(path, true, false, Nil)
+          case "foo\\bar2\\a\\b\\ABC.class" => new FakeFileForSpecs(path, true, false, Nil)
+          case _ => new FakeFile(path)
+        }
+      }
     
-    val fakeFilesExpected = List(
-            "foo/bar1/ASpec.class", 
-            "foo/bar2/BSpec.class",
-            "foo/bar2/a/ABSpec.class",
-            "foo/bar2/a/b/ABCSpec.class")
+  }
 
-    val fakeFilesExpectedBar2a = List(
-            "foo/bar2/BSpec.class",
-            "foo/bar2/a/ABSpec.class",
-            "foo/bar2/a/b/ABCSpec.class")
+  val oneFakeFileExpected = if (Environment.environment.fileSeparator == "/") {
+    List("foo/bar1/ASpec.class")
+  } else {
+    List("foo\\bar1\\ASpec.class")
+  }
+
+  val fakeFilesExpected = if (Environment.environment.fileSeparator == "/") {
+    List(
+      "foo/bar1/ASpec.class",
+      "foo/bar2/BSpec.class",
+      "foo/bar2/a/ABSpec.class",
+      "foo/bar2/a/b/ABCSpec.class")
+  } else {
+    List(
+      "foo\\bar1\\ASpec.class",
+      "foo\\bar2\\BSpec.class",
+      "foo\\bar2\\a\\ABSpec.class",
+      "foo\\bar2\\a\\b\\ABCSpec.class")
+  }
+
+  val fakeFilesExpectedBar2a = if (Environment.environment.fileSeparator == "/") {
+    List(
+      "foo/bar2/BSpec.class",
+      "foo/bar2/a/ABSpec.class",
+      "foo/bar2/a/b/ABCSpec.class")
+  } else {
+    List(
+      "foo\\bar2\\BSpec.class",
+      "foo\\bar2\\a\\ABSpec.class",
+      "foo\\bar2\\a\\b\\ABCSpec.class")
+  }
 }

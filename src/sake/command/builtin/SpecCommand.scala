@@ -13,7 +13,8 @@ import sake.util._
  * </ol>
  * @note Must run as a separate process to pick up any newly compiled files, rather than reading what's in the sake.jar file!
  */
-class SpecCommand(defaultOptions: Option[Map[Symbol, Any]]) extends JVMCommand("scala", defaultOptions){
+class SpecCommand(defaultOptions: Option[Map[Symbol, Any]]) 
+    extends JVMCommand(Environment.environment.scalaCommand, defaultOptions){
 
     def this(defaultOpts: Map[Symbol, Any]) = this(Some(defaultOpts))
 
@@ -39,7 +40,7 @@ class SpecCommand(defaultOptions: Option[Map[Symbol, Any]]) extends JVMCommand("
             case o => List(o)
         }
         val scalaScriptOpts = "sake.command.builtin.SakeSpecRunner" :: path :: pattern :: Nil
-        super.optionsPostFilter(removePathAndPattern(options.update('opts, opts ::: scalaScriptOpts)))
+        super.optionsPostFilter(removePathAndPattern(options.updated('opts, opts ::: scalaScriptOpts)))
     }
     
     protected def removePathAndPattern(options: Map[Symbol,Any]) = options - 'path - 'pattern

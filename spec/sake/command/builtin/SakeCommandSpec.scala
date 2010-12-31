@@ -1,6 +1,8 @@
 package sake.command.builtin
 
+import sake.command._
 import org.specs._ 
+import sake.environment._
 
 object SakeCommandSpec extends Specification {
     def makeTestSakeCommand(expectedFile: String, expectedTargets: String) = {
@@ -8,8 +10,8 @@ object SakeCommandSpec extends Specification {
             override def action(options: Map[Symbol, Any]):Result = {
                 val command = options.getOrElse('command, "").toString()
                 val input   = options.getOrElse('inputText, "").toString()
-                command mustEqual "scala"
-                (":load "+expectedFile+"\\s*[\\n\\r]+\\s*build\\(\""+expectedTargets+"\"\\)").r findFirstIn input match {
+                command mustEqual Environment.environment.scalaCommand
+                (":load "+expectedFile+"\\s*[\\r\\n]|[\\n\\r]+\\s*build\\(\""+expectedTargets+"\"\\)").r findFirstIn input match {
                     case None => fail(input)
                     case Some(_) => 
                 }

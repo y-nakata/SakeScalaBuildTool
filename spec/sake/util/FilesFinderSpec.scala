@@ -33,15 +33,28 @@ object FilesFinderSpec extends Specification {
             val f = new FilesFinder() {
                 override def makeFile(path: String) = {
                     val p = if (path.length == 0) "." else path
+                  if (Environment.environment.fileSeparator == "/") {
                     p match {
-                        case "foo" => new FakeFile(p, true, true, List("bar"))
-                        case "foo/bar" => new FakeFile(p, true, true, List("baz"))
-                        case "foo/bar/baz" => new FakeFile(p, true, true, Nil)
-                        case _ => new FakeFile(p)
+                      case "foo" => new FakeFile(p, true, true, List("bar"))
+                      case "foo/bar" => new FakeFile(p, true, true, List("baz"))
+                      case "foo/bar/baz" => new FakeFile(p, true, true, Nil)
+                      case _ => new FakeFile(p)
                     }
+                  } else {
+                    p match {
+                      case "foo" => new FakeFile(p, true, true, List("bar"))
+                      case "foo\\bar" => new FakeFile(p, true, true, List("baz"))
+                      case "foo\\bar\\baz" => new FakeFile(p, true, true, Nil)
+                      case _ => new FakeFile(p)
+                    }
+                  }
                 }
             }
-            f("foo/bar/baz") mustEqual List("foo/bar/baz")
+            if (Environment.environment.fileSeparator=="/") {
+              f("foo/bar/baz") mustEqual List("foo/bar/baz")
+            } else {
+              f("foo/bar/baz") mustEqual List("foo\\bar\\baz")
+            }
         }
         "return Nil for specification 'foo/bar/baz' if it does not exists" in {
             val f = new FilesFinder() {
@@ -61,7 +74,8 @@ object FilesFinderSpec extends Specification {
         val fFooBar12Baz = new FilesFinder() {
             override def makeFile(path: String) = {
                 val p = if (path.length == 0) "." else path
-                p match {
+                if (Environment.environment.fileSeparator == "/") {
+                  p match {
                     case "." => new FakeFile(p, true, true, List("foo"))
                     case "foo" => new FakeFile(p, true, true, List("bar1", "bar2"))
                     case "foo/bar1" => new FakeFile(p, true, true, List("baz"))
@@ -70,11 +84,26 @@ object FilesFinderSpec extends Specification {
                     case "foo/bar2/baz" => new FakeFile(p, true, true, Nil)
                     case _ => new FakeFile(p)
                 }
+                } else {
+                  p match {
+                    case "." => new FakeFile(p, true, true, List("foo"))
+                    case "foo" => new FakeFile(p, true, true, List("bar1", "bar2"))
+                    case "foo\\bar1" => new FakeFile(p, true, true, List("baz"))
+                    case "foo\\bar2" => new FakeFile(p, true, true, List("baz"))
+                    case "foo\\bar1\\baz" => new FakeFile(p, true, true, Nil)
+                    case "foo\\bar2\\baz" => new FakeFile(p, true, true, Nil)
+                    case _ => new FakeFile(p)
+                }
+                }
             }
         }
 
         "return List('foo/bar1/baz', 'foo/bar2/baz') for specification 'foo/*/baz' if they exist..." in {
-            fFooBar12Baz("foo/*/baz") mustEqual List("foo/bar1/baz", "foo/bar2/baz")
+            if (Environment.environment.fileSeparator=="/") {
+              fFooBar12Baz("foo/*/baz") mustEqual List("foo/bar1/baz", "foo/bar2/baz")
+            } else {
+              fFooBar12Baz("foo/*/baz") mustEqual List("foo\\bar1\\baz", "foo\\bar2\\baz")              
+            }
         }
         
         "return List('foo') for specification '*' if it is the only item in '.'" in {
@@ -82,13 +111,18 @@ object FilesFinderSpec extends Specification {
         }
 
         "return List('foo/bar1') for specification '*/bar1' 'bar1' is the only item in 'foo'" in {
+          if (Environment.environment.fileSeparator=="/") {
             fFooBar12Baz("*/bar1") mustEqual List("foo/bar1")
+          } else {
+            fFooBar12Baz("*/bar1") mustEqual List("foo\\bar1")
+          }
         }
 
         "return Nil for specification 'foo/*/baz' if neither 'foo/bar1' nor 'foo/bar2' has a 'baz'" in {
             val f = new FilesFinder() {
                 override def makeFile(path: String) = {
                     val p = if (path.length == 0) "." else path
+                  if (Environment.environment.fileSeparator=="/") {
                     p match {
                         case "." => new FakeFile(p, true, true, List("foo"))
                         case "foo" => new FakeFile(p, true, true, List("bar1", "bar2"))
@@ -98,8 +132,20 @@ object FilesFinderSpec extends Specification {
                         case "foo/bar2/yy" => new FakeFile(p, true, true, Nil)
                         case _ => new FakeFile(p)
                     }
+                  } else {
+                    p match {
+                        case "." => new FakeFile(p, true, true, List("foo"))
+                        case "foo" => new FakeFile(p, true, true, List("bar1", "bar2"))
+                        case "foo\\bar1" => new FakeFile(p, true, true, List("xx"))
+                        case "foo\\bar2" => new FakeFile(p, true, true, List("yy"))
+                        case "foo\\bar1\\xx" => new FakeFile(p, true, true, Nil)
+                        case "foo\\bar2\\yy" => new FakeFile(p, true, true, Nil)
+                        case _ => new FakeFile(p)
+                  }
+                  }
                 }
             }
+
             f("foo/bar/baz") mustEqual Nil
         }
 
@@ -118,6 +164,7 @@ object FilesFinderSpec extends Specification {
         val fFooBar12BazMore = new FilesFinder() {
             override def makeFile(path: String) = {
                 val p = if (path.length == 0) "." else path
+              if (Environment.environment.fileSeparator=="/") {
                 p match {
                     case "." => new FakeFile(p, true, true, List("foo"))
                     case "foo" => new FakeFile(p, true, true, List("bar1", "bar2"))
@@ -132,23 +179,55 @@ object FilesFinderSpec extends Specification {
                     case "foo/bar2/a/b/baz" => new FakeFile(p, true, true, Nil)
                     case _ => new FakeFile(p)
                 }
+              } else {
+                p match {
+                    case "." => new FakeFile(p, true, true, List("foo"))
+                    case "foo" => new FakeFile(p, true, true, List("bar1", "bar2"))
+                    case "foo\\bar1" => new FakeFile(p, true, true, List("baz"))
+                    case "foo\\bar2" => new FakeFile(p, true, true, List("baz", "a"))
+                    case "foo\\bar1\\baz" => new FakeFile(p, true, true, Nil)
+                    case "foo\\bar2\\baz" => new FakeFile(p, true, false, Nil)
+                    case "foo\\bar2\\a" => new FakeFile(p, true, true, List("b", "baz"))
+                    case "foo\\bar2\\a\\b" => new FakeFile(p, true, true, List("c", "baz"))
+                    case "foo\\bar2\\a\\baz" => new FakeFile(p, true, true, Nil)
+                    case "foo\\bar2\\a\\b\\c" => new FakeFile(p, true, true, Nil)
+                    case "foo\\bar2\\a\\b\\baz" => new FakeFile(p, true, true, Nil)
+                    case _ => new FakeFile(p)
+                }
+              }
             }
         }
 
         "return List('foo/bar1/baz', ...) for specification 'foo/**/baz' if they exist" in {
+          if (Environment.environment.fileSeparator=="/") {
             fFooBar12BazMore("foo/**/baz") mustEqual List(
                 "foo/bar1/baz",
                 "foo/bar2/baz",
                 "foo/bar2/a/baz",
                 "foo/bar2/a/b/baz")
+          } else {
+            fFooBar12BazMore("foo/**/baz") mustEqual List(
+                "foo\\bar1\\baz",
+                "foo\\bar2\\baz",
+                "foo\\bar2\\a\\baz",
+                "foo\\bar2\\a\\b\\baz")            
+          }
         }
         
         "return List('foo/bar1/baz', ...) for specification '**/baz' if they exist" in {
+          if (Environment.environment.fileSeparator=="/") {
             fFooBar12BazMore("**/baz") mustEqual List(
                 "foo/bar1/baz",
                 "foo/bar2/baz",
                 "foo/bar2/a/baz",
                 "foo/bar2/a/b/baz")
+          } else {
+            fFooBar12BazMore("**/baz") mustEqual List(
+                "foo\\bar1\\baz",
+                "foo\\bar2\\baz",
+                "foo\\bar2\\a\\baz",
+                "foo\\bar2\\a\\b\\baz")            
+          }
         }
         
 
@@ -211,8 +290,9 @@ object FilesFinderSpec extends Specification {
     
     "When one specification is subtracted from another spec., apply()" should {
         "return the first list minus the second" in {
-            (FakeFileForSpecs.fakeFilesFinder("foo/**/*Spec.class") --
-             FakeFileForSpecs.fakeFilesFinder("foo/bar1/**")).sort(_.length < _.length) mustEqual FakeFileForSpecs.fakeFilesExpectedBar2a
+            val fakes = FakeFileForSpecs.fakeFilesFinder("foo/**/*Spec.class")
+            val skips = FakeFileForSpecs.fakeFilesFinder("foo/bar1/**")
+            (fakes filterNot { x => skips contains x }).sortWith(_.length < _.length) mustEqual FakeFileForSpecs.fakeFilesExpectedBar2a
         }
     }
     
