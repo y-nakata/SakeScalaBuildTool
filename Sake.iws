@@ -2,55 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d7933f28-e2b4-43cf-8f1f-f7a25bd9669f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/2.8.0/embedded-interpreter-0.1-2.8.0.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/2.8.0/sake-2.8.0-1.1-src.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/2.8.0/sake-2.8.0-1.1.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/2.8.0/specs_2.8.0-1.6.5.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/2.8.1/embedded-interpreter-0.1-2.8.0.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/2.8.1/sake-2.8.1-1.1-src.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/2.8.1/sake-2.8.1-1.1.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/2.8.1/specs_2.8.1-1.6.6.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Makefile_migw" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bin/cat_cmd.bat" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bin/cat_cmd.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bin/sake_stdin.bat" />
-      <change type="MOVED" beforePath="C:\Users\key\Desktop\sakebuild\y-nakata_SakeScalaBuildTool\lib\embedded-interpreter-0.1-SNAPSHOT.jar" afterPath="$PROJECT_DIR$/lib/2.7.7/embedded-interpreter-0.1-SNAPSHOT.jar" />
-      <change type="MOVED" beforePath="C:\Users\key\Desktop\sakebuild\y-nakata_SakeScalaBuildTool\lib\sake-src.jar" afterPath="$PROJECT_DIR$/lib/2.7.7/sake-2.7.7-1.1-src.jar" />
-      <change type="MOVED" beforePath="C:\Users\key\Desktop\sakebuild\y-nakata_SakeScalaBuildTool\lib\sake.jar" afterPath="$PROJECT_DIR$/lib/2.7.7/sake-2.7.7-1.1.jar" />
-      <change type="MOVED" beforePath="C:\Users\key\Desktop\sakebuild\y-nakata_SakeScalaBuildTool\lib\specs-1.5.0.jar" afterPath="$PROJECT_DIR$/lib/2.7.7/specs-1.5.0.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Makefile" afterPath="$PROJECT_DIR$/Makefile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.textile" afterPath="$PROJECT_DIR$/README.textile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.html" afterPath="$PROJECT_DIR$/README.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Sake.iml" afterPath="$PROJECT_DIR$/Sake.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Sake.ipr" afterPath="$PROJECT_DIR$/Sake.ipr" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Sake.iws" afterPath="$PROJECT_DIR$/Sake.iws" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/sake.bat" afterPath="$PROJECT_DIR$/bin/sake.bat" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/sake" afterPath="$PROJECT_DIR$/bin/sake" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/specrunner.scala" afterPath="$PROJECT_DIR$/bin/specrunner.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sake.scala" afterPath="$PROJECT_DIR$/sake.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/sake/command/CommandRunnerSpec.scala" afterPath="$PROJECT_DIR$/spec/sake/command/CommandRunnerSpec.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/sake/command/ShellCommandSpec.scala" afterPath="$PROJECT_DIR$/spec/sake/command/ShellCommandSpec.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/sake/command/builtin/SakeCommandSpec.scala" afterPath="$PROJECT_DIR$/spec/sake/command/builtin/SakeCommandSpec.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/sake/command/builtin/SpecCommandSpec.scala" afterPath="$PROJECT_DIR$/spec/sake/command/builtin/SpecCommandSpec.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/sake/environment/EnvironmentSpec.scala" afterPath="$PROJECT_DIR$/spec/sake/environment/EnvironmentSpec.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/sake/util/FakeFile.scala" afterPath="$PROJECT_DIR$/spec/sake/util/FakeFile.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/sake/util/FileSpec.scala" afterPath="$PROJECT_DIR$/spec/sake/util/FileSpec.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/sake/util/FilesFinderSpec.scala" afterPath="$PROJECT_DIR$/spec/sake/util/FilesFinderSpec.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/sake/util/LogSpec.scala" afterPath="$PROJECT_DIR$/spec/sake/util/LogSpec.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/sake/util/PathSpec.scala" afterPath="$PROJECT_DIR$/spec/sake/util/PathSpec.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sake/Project.scala" afterPath="$PROJECT_DIR$/src/sake/Project.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sake/command/CommandRunner.scala" afterPath="$PROJECT_DIR$/src/sake/command/CommandRunner.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sake/command/Result.scala" afterPath="$PROJECT_DIR$/src/sake/command/Result.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sake/command/builtin/Commands.scala" afterPath="$PROJECT_DIR$/src/sake/command/builtin/Commands.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sake/command/builtin/EchoCommand.scala" afterPath="$PROJECT_DIR$/src/sake/command/builtin/EchoCommand.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sake/command/builtin/JVMCommand.scala" afterPath="$PROJECT_DIR$/src/sake/command/builtin/JVMCommand.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sake/command/builtin/SakeCommand.scala" afterPath="$PROJECT_DIR$/src/sake/command/builtin/SakeCommand.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sake/command/builtin/SpecCommand.scala" afterPath="$PROJECT_DIR$/src/sake/command/builtin/SpecCommand.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sake/environment/Environment.scala" afterPath="$PROJECT_DIR$/src/sake/environment/Environment.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sake/util/FilesFinder.scala" afterPath="$PROJECT_DIR$/src/sake/util/FilesFinder.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sake/util/Path.scala" afterPath="$PROJECT_DIR$/src/sake/util/Path.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sake/util/SymbolUtil.scala" afterPath="$PROJECT_DIR$/src/sake/util/SymbolUtil.scala" />
     </list>
     <ignored path="Sake.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -166,10 +121,64 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ShellCommand.scala" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sake/command/ShellCommand.scala">
+      <file leaf-file-name="Makefile" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Makefile">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="104" column="18" selection-start="4266" selection-end="4266" vertical-scroll-proportion="0.0">
+            <state line="56" column="0" selection-start="1659" selection-end="1659" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/README.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="39" column="36" selection-start="1886" selection-end="1886" vertical-scroll-proportion="1.9230769">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.textile" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/README.textile">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="26" column="12" selection-start="1584" selection-end="1584" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sake" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bin/sake">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="20" selection-start="20" selection-end="20" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Project.scala" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sake/Project.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="106" column="7" selection-start="3159" selection-end="3159" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="build.sh" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/bin/build.sh">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="9" selection-start="9" selection-end="9" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FileSpec.scala" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/spec/sake/util/FileSpec.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="20" column="9" selection-start="553" selection-end="553" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -178,25 +187,25 @@
       <file leaf-file-name="CommandRunnerSpec.scala" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/spec/sake/command/CommandRunnerSpec.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="102" column="0" selection-start="4176" selection-end="4176" vertical-scroll-proportion="0.0">
+            <state line="140" column="0" selection-start="5728" selection-end="5728" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ShellCommandSpec.scala" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/spec/sake/command/ShellCommandSpec.scala">
+      <file leaf-file-name="EnvironmentSpec.scala" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/spec/sake/environment/EnvironmentSpec.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="267" column="58" selection-start="11393" selection-end="11393" vertical-scroll-proportion="0.0">
+            <state line="41" column="39" selection-start="1294" selection-end="1294" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="cat_cmd.scala" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/bin/cat_cmd.scala">
+      <file leaf-file-name="Path.scala" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sake/util/Path.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="0" selection-start="317" selection-end="317" vertical-scroll-proportion="0.75654453">
+            <state line="85" column="20" selection-start="2712" selection-end="2712" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -220,10 +229,12 @@
         <option value="$PROJECT_DIR$/Makefile_migw" />
         <option value="$PROJECT_DIR$/sake.log" />
         <option value="$PROJECT_DIR$/bin/cat_cmd.bat" />
-        <option value="$PROJECT_DIR$/spec/sake/command/CommandRunnerSpec.scala" />
         <option value="$PROJECT_DIR$/spec/sake/command/ShellCommandSpec.scala" />
-        <option value="$PROJECT_DIR$/src/sake/environment/Environment.scala" />
         <option value="$PROJECT_DIR$/bin/cat_cmd.scala" />
+        <option value="$PROJECT_DIR$/src/sake/environment/Environment.scala" />
+        <option value="$PROJECT_DIR$/README.textile" />
+        <option value="$PROJECT_DIR$/spec/sake/command/CommandRunnerSpec.scala" />
+        <option value="$PROJECT_DIR$/bin/sake" />
       </list>
     </option>
   </component>
@@ -499,7 +510,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -518,25 +528,80 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Sake" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="y-nakata_SakeScalaBuildTool" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sake" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Project.scala" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Sake" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="y-nakata_SakeScalaBuildTool" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sake" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Sake" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="y-nakata_SakeScalaBuildTool" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
       <pane id="Favorites" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="80" />
-    <property name="project.structure.proportion" value="0.15" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="100" />
+    <property name="project.structure.proportion" value="0.15" />
     <property name="options.splitter.main.proportions" value="0.19382022" />
-    <property name="MemberChooser.sorted" value="false" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="92" />
     <property name="recentsLimit" value="5" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="92" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
+    <property name="MemberChooser.sorted" value="false" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="147" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="892" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="854" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="892" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="101" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="96" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
@@ -550,7 +615,7 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
-    <property name="options.lastSelected" value="preferences.pluginManager" />
+    <property name="options.lastSelected" value="editor.preferences.appearance" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="options.searchVisible" value="true" />
@@ -717,23 +782,21 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1296" height="784" extended-state="6" />
+    <frame x="-1" y="392" width="1280" height="381" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.44084278" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901135" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32901135" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26062092" sideWeight="0.6709887" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25993377" sideWeight="0.6709887" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901135" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Dataflow to this" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -743,9 +806,11 @@
       <window_info id="Test Runs" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven-2 Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="CheckStyle" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven-2 Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.44084278" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32901135" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="EJB" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Web Preview" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -793,102 +858,114 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/sake/command/CommandRunner.scala">
+    <entry file="file://$PROJECT_DIR$/spec/sake/command/builtin/SpecCommandSpec.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="14" selection-start="346" selection-end="346" vertical-scroll-proportion="0.0">
+        <state line="63" column="48" selection-start="2178" selection-end="2178" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://D:/scala-2.8.1.final/src/scala-library-src.jar!/scala/io/Source.scala">
+    <entry file="file://$PROJECT_DIR$/bin/specrunner.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="74" column="6" selection-start="2485" selection-end="2485" vertical-scroll-proportion="-6.913649" />
-      </provider>
-    </entry>
-    <entry file="jar://D:/jdk1.6.0_23/src.zip!/java/io/BufferedReader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="286" column="11" selection-start="9000" selection-end="9000" vertical-scroll-proportion="0.75766015" />
-      </provider>
-    </entry>
-    <entry file="jar://D:/scala-2.8.1.final/src/scala-library-src.jar!/scala/Console.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="219" column="35" selection-start="6723" selection-end="6723" vertical-scroll-proportion="0.33147633" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bin/sake.bat">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bin/sake_stdin.bat">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="7" column="45" selection-start="261" selection-end="261" vertical-scroll-proportion="0.37362638">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://D:/scala-2.8.1.final/src/scala-library-src.jar!/scala/Predef.scala">
+    <entry file="file://$PROJECT_DIR$/src/sake/util/FilesFinder.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="183" column="37" selection-start="6643" selection-end="6643" vertical-scroll-proportion="0.8644986" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sake/command/Command.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="6" selection-start="48" selection-end="48" vertical-scroll-proportion="-2.5157068">
+        <state line="6" column="20" selection-start="93" selection-end="93" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sake.scala">
+    <entry file="file://$PROJECT_DIR$/src/sake/util/SymbolUtil.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="91" column="22" selection-start="3076" selection-end="3076" vertical-scroll-proportion="0.762069">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bin/cat_cmd.bat">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="0" selection-start="54" selection-end="54" vertical-scroll-proportion="0.11724138">
+        <state line="7" column="23" selection-start="177" selection-end="177" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sake/environment/Environment.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="79" column="0" selection-start="2844" selection-end="2844" vertical-scroll-proportion="1.866426">
+        <state line="114" column="0" selection-start="3901" selection-end="3901" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sake.log">
+    <entry file="file://$PROJECT_DIR$/sake.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="69" selection-start="606" selection-end="606" vertical-scroll-proportion="0.0">
+        <state line="39" column="15" selection-start="1634" selection-end="1634" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sake/command/ShellCommand.scala">
+    <entry file="file://$PROJECT_DIR$/spec/sake/environment/EnvironmentSpec.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="104" column="18" selection-start="4266" selection-end="4266" vertical-scroll-proportion="0.0" />
+        <state line="41" column="39" selection-start="1294" selection-end="1294" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sake/util/Path.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="85" column="20" selection-start="2712" selection-end="2712" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="39" column="36" selection-start="1886" selection-end="1886" vertical-scroll-proportion="1.9230769">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.textile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="12" selection-start="1584" selection-end="1584" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Makefile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="56" column="0" selection-start="1659" selection-end="1659" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spec/sake/util/FileSpec.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="9" selection-start="553" selection-end="553" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/spec/sake/command/CommandRunnerSpec.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="102" column="0" selection-start="4176" selection-end="4176" vertical-scroll-proportion="0.0">
+        <state line="140" column="0" selection-start="5728" selection-end="5728" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spec/sake/command/ShellCommandSpec.scala">
+    <entry file="file://$PROJECT_DIR$/bin/sake">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="267" column="58" selection-start="11393" selection-end="11393" vertical-scroll-proportion="0.0">
+        <state line="0" column="20" selection-start="20" selection-end="20" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bin/cat_cmd.scala">
+    <entry file="file://$PROJECT_DIR$/src/sake/Project.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="0" selection-start="317" selection-end="317" vertical-scroll-proportion="0.75654453">
+        <state line="106" column="7" selection-start="3159" selection-end="3159" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/build.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="9" selection-start="9" selection-end="9" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -896,82 +973,9 @@
   </component>
   <component name="masterDetails">
     <states>
-      <state key="ArtifactsStructureConfigurable.UI">
-        <settings>
-          <artifact-editor />
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
       <state key="Copyright.UI">
         <settings>
           <splitter-proportions />
-        </settings>
-      </state>
-      <state key="FacetStructureConfigurable.UI">
-        <settings>
-          <last-edited>Android</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="GlobalLibrariesConfigurable.UI">
-        <settings>
-          <last-edited>scala-compiler-2.8.1</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="JdkListConfigurable.UI">
-        <settings>
-          <last-edited>1.6</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ModuleStructureConfigurable.UI">
-        <settings>
-          <last-edited>Sake</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-                <option value="0.5" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ProjectLibrariesConfigurable.UI">
-        <settings>
-          <last-edited>embedded-interpreter-0.1-2.8.0</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
         </settings>
       </state>
       <state key="ScopeChooserConfigurable.UI">

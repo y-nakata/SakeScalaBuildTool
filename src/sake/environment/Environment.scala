@@ -88,7 +88,7 @@ object Environment {
      * It appears that the "java.class.path" does not include the environments
      * CLASSPATH by default. If this variable is true, we combine the two.
      */
-    var combineCLASSPATHandSystemClassPath = false
+    var combineCLASSPATHandSystemClassPath = true
 
     /**
      * Returns a system property or "" if not defined. If you would prefer null for

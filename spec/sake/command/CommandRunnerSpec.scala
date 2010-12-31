@@ -138,13 +138,8 @@ object CommandRunnerSpec extends Specification {
 
         runner.environment mustEqual environment
         runner.run()
-        outputFile.writer.toString must be matching (
-                if (Environment.environment.isWindows) {
-                  """\\lib$"""
-                } else {
-                  """/lib$"""
-                })
-    }    
+        outputFile.writer.toString must be matching ("""lib$""")
+    }
 
     protected def runFailedTestCommand = {
         val outputFile = new FakeFile("toss.out")
