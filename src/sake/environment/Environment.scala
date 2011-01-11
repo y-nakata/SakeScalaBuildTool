@@ -34,8 +34,7 @@ class Environment {
     val currentWorkingDirectory = Environment.getSystemProperty("user.dir")
     
     /**
-     * For convenience, the full environment variables map is exposed as an
-     * immutable Scala (not Java) Map.
+     * For convenience, the environment variables map is exposed explicitly, read only.
      */
     val environmentVariables = Environment.getSystemEnvironmentVariables
     
@@ -43,20 +42,12 @@ class Environment {
      * For convenience and to keep the system classpath consistent with any user changes,
      * the "classpath" is exposed explicitly as a List that is kept synchronized with the
      * system's value. Use standard list operations to change it. 
-     * We have also found it necessary to merge the environment variable CLASSPATH
-     * with the property, which apparently isn't done by the JVM by default.
      */
     def classpath: Path = {
-        val cp = if (Environment.combineCLASSPATHandSystemClassPath) {
-          Environment.getSystemProperty("java.class.path") + 
-                  pathSeparator + environmentVariables.getOrElse("CLASSPATH","")
-        } else {
-          Environment.getSystemProperty("java.class.path")
-        }
         val seq = for {
-            s <- cp.split(pathSeparator)
+            s <- Environment.getSystemProperty("java.class.path").split(pathSeparator)
         } yield s
-        Path(seq.distinct)(pathSeparator)
+        Path(seq)(pathSeparator)
     }
 
     /**
@@ -76,19 +67,11 @@ class Environment {
 
     def scalacCommand() = if (Environment.environment.isWindows) "scalac.bat" else "scalac"
 
-    def catCommand() = if (Environment.environment.isWindows) environmentVariables.getOrElse("SAKE_HOME", "") + "\\bin\\cat_cmd.bat" else "cat"
-
 }
 
 object Environment {
     
     val environment:Environment = new Environment()
-
-    /**
-     * It appears that the "java.class.path" does not include the environments
-     * CLASSPATH by default. If this variable is true, we combine the two.
-     */
-    var combineCLASSPATHandSystemClassPath = true
 
     /**
      * Returns a system property or "" if not defined. If you would prefer null for
@@ -102,15 +85,7 @@ object Environment {
     def setSystemProperty(key:String, value:String):Unit = System.setProperty(key, value)
     
     /**
-     * Returns the system environment, as an immutable Scala Map.
+     * Returns the system environment, a map of variables.
      */
-    def getSystemEnvironmentVariables = {
-      val map = scala.collection.mutable.HashMap.empty[String,String]
-      val iter = System.getenv().entrySet.iterator
-      while (iter.hasNext) {
-        val entry = iter.next
-          map += entry.getKey -> entry.getValue
-      }
-      map.toMap
-    }
+    def getSystemEnvironmentVariables = System.getenv()
 }

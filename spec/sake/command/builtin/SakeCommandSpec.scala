@@ -1,6 +1,5 @@
 package sake.command.builtin
 
-import sake.command._
 import org.specs._ 
 import sake.environment._
 

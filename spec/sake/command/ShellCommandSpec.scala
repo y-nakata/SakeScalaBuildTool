@@ -110,7 +110,7 @@ object ShellCommandSpec extends Specification {
         "compose the default options into a command string, starting with the command name." in {
              val cmd = new ShellCommand("shcmd", Map('foo -> "foo", 'bar -> List("bar1", "bar2")))
              cmd()
-             byteStream.toString() must be matching ("""shcmd\s+-foo foo -bar bar1[:;]bar2""")
+             byteStream.toString() must be matching ("""shcmd\s+-foo foo -bar \"?bar1[:;]bar2\"?""")
         }        
     }        
     
@@ -128,7 +128,7 @@ object ShellCommandSpec extends Specification {
         "compose the additional and default options, overwriting the later into a command string, starting with the command name." in {
              val cmd = new ShellCommand("ls", Map('foo -> "foo", 'bar -> List("bar1", "bar2")))
              cmd('foo -> "foobar", 'baz -> ("a", "b"))
-             byteStream.toString() must be matching("""ls\s+-foo foobar -bar bar1[:;]bar2 -baz \(a,b\)""")
+             byteStream.toString() must be matching("""ls\s+-foo foobar -bar \"?bar1[:;]bar2\"? -baz \(a,b\)""")
         }        
     }
     
@@ -220,7 +220,7 @@ object ShellCommandSpec extends Specification {
         "map any other unknown 'opt -> List(a,b,c) to a path-like '-opt -> a:b:c'" in {
              val cmd = new ShellCommand("shcmd")
              cmd('command -> "shcmd", 'foo -> List("a", "b", "c"))
-             byteStream.toString() must be matching ("""shcmd\s+-foo a[:;]b[:;]c""")
+             byteStream.toString() must be matching ("""shcmd\s+-foo \"?a[:;]b[:;]c\"?""")
         }
 
         "map any other unknown 'opt -> Any to '-opt -> Any.toString()' (without quotes)" in {
@@ -242,7 +242,7 @@ object ShellCommandSpec extends Specification {
             Environment.environment.dryRun = false
             val outputFile = new FakeFile("toss.out")
             val cmd = new ShellCommand("shcmd")
-            cmd('command -> Environment.environment.catCommand, 'inputText -> "hello world!", 'outputFile -> outputFile)
+            cmd('command -> "cat", 'inputText -> "hello world!", 'outputFile -> outputFile)
             outputFile.stringForReading mustEqual "hello world!" + Environment.environment.lineSeparator
         }
 
@@ -265,7 +265,7 @@ object ShellCommandSpec extends Specification {
             val tempFile = makeTempFileWithContent
             val outputFile = new FakeFile("toss.out")
             val cmd = new ShellCommand("shcmd")
-            cmd('command -> Environment.environment.catCommand, 'inputFile -> tempFile, 'outputFile -> outputFile)
+            cmd('command -> "cat", 'inputFile -> tempFile, 'outputFile -> outputFile)
             outputFile.stringForReading mustEqual "hello world!" + Environment.environment.lineSeparator
         }
 

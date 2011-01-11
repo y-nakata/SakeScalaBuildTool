@@ -1,6 +1,6 @@
 package sake.command.builtin
 
-import sake.command._
+import sake.command.Command
 import sake.util._
 
 /**

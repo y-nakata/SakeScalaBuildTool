@@ -1,17 +1,11 @@
 import sake.Project._
 
 // Define some convenient variables.
-val srcDir   = "src" + environment.fileSeparator
-var specDir  = "spec" + environment.fileSeparator
-val buildDir = "build" + environment.fileSeparator
-val libDir   = "lib" + environment.fileSeparator
-val sxr      = libDir + environment.fileSeparator + "sxr-0.1.jar"
-
-// Version strings used for the generated jars:
-// What version of Sake? Can specify on the command line with VERSION=...
-val version = environment.environmentVariables.getOrElse("VERSION", "1.1")
-// What Scala version of Sake? Can specify on the command line with SCALA_VERSION=...
-val scalaVersion = environment.environmentVariables.getOrElse("SCALA_VERSION", "2.8.0.RC7")
+val srcDir   = "src/"
+var specDir  = "spec/"
+val buildDir = "build/"
+val libDir   = "lib/"
+val sxr      = libDir + "/sxr-0.1.jar"
 
 // If true, don't actually run any commands.
 environment.dryRun = false
@@ -23,8 +17,7 @@ showStackTracesOnFailures = false
 log.threshold = Level.Info
 
 // Add to the classpath using list semantics.
-environment.classpath :::= (files(libDir + "*.jar") filterNot (files(libDir + "*src.jar")contains))
-environment.classpath ::= (files(libDir + scalaVersion + environment.fileSeparator + "*.jar"))
+environment.classpath :::= (files(libDir + "*.jar") -- files(libDir + "*src.jar"))
 environment.classpath ::= buildDir
 
 target('all -> List('clean, 'compile, 'spec, 'jars))
@@ -32,21 +25,13 @@ target('all -> List('clean, 'compile, 'spec, 'jars))
 target('jars -> List('jar, 'srcjar))
 
 target('jar) {
-    val jarName = buildDir+environment.fileSeparator+"sake-"+scalaVersion+"-"+version+".jar"
-    sh("jar cf "+jarName+" -C "+buildDir+" sake")
-    if (environment.isWindows)
-    	sh("cmd /c copy "+jarName+" "+libDir+environment.fileSeparator+scalaVersion)
-    else
-    	sh("cp "+jarName+" "+libDir+environment.fileSeparator+scalaVersion)
+    sh("jar cf "+buildDir+"/sake.jar -C "+buildDir+" sake")
+    sh("cp "+buildDir+"/sake.jar "+libDir)
 }
 
 target('srcjar) {
-    val jarName = buildDir+environment.fileSeparator+"sake-"+scalaVersion+"-"+version+"-src.jar"
-    sh("jar cf "+jarName+" -C "+buildDir+" sake")
-    if (environment.isWindows)
-    	sh("cmd /c copy "+jarName+" "+libDir+environment.fileSeparator+scalaVersion)
-    else
-    	sh("cp "+jarName+" "+libDir+environment.fileSeparator+scalaVersion)
+    sh("jar cf "+buildDir+"/sake-src.jar src spec")
+    sh("cp "+buildDir+"/sake-src.jar "+libDir)
 }
 
 target('spec) {
@@ -80,15 +65,9 @@ target('fail) {
 
 import sake.util._
 target('ls) {
-	if (environment.isWindows)
-		shell('command -> "cmd", 'opts -> List("/c","dir","."), 'outputFile -> File("foo.txt"))
-	else
-		shell('command -> "ls", 'opts -> ".", 'outputFile -> File("foo.txt"))
+    shell('command -> "ls", 'opts -> ".", 'outputFile -> File("foo.txt"))
 }
 target('cat ) {
-	if (environment.isWindows)
-		shell('command -> "cmd", 'opts -> List("/c","type"), 'inputFile -> File("foo.txt"), 'outputFile -> File("foo.txt2"))
-	else
-		shell('command -> "cat", 'inputFile -> File("foo.txt"), 'outputFile -> File("foo.txt2"))
+    shell('command -> "cat", 'inputFile -> File("foo.txt"), 'outputFile -> File("foo.txt2"))
 }
 

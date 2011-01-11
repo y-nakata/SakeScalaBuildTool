@@ -41,8 +41,9 @@ class ProjectDriver extends Commands {
     def build(targs: List[Symbol]):Unit =
         determineTargets(targs) foreach { t => doBuild(t) }
         
+    // removeDuplicates removes from left, but we need it to remove from the right.
     protected def determineTargets(targs: List[Symbol]):List[Target] = 
-        determineBuildOrder(targs).distinct
+        determineBuildOrder(targs).reverse.removeDuplicates.reverse
 
     protected def determineBuildOrder(targs: List[Symbol]): List[Target] = {
         targs.reverse.foldLeft(List[Target]()) { (all, t) => 
@@ -86,7 +87,7 @@ class ProjectDriver extends Commands {
                 case None => targ
                 case Some(t) => Target.merge(t, targ)
             }
-            map.updated(targ2.name, targ2)
+            map.update(targ2.name, targ2)
         }
         
     private def allTargetsFromGroups() = {

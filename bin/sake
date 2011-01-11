@@ -1,16 +1,10 @@
-#!/usr/bin/env bash
+#!/bin/bash -- 
 #===================================================================
 # sake - driver command for "sake" build tool.
 # Run "sake -h" for help.
 #===================================================================
 
 set +x
-
-# Uncomment the desired Sake and/or Scala version for the build you want and
-# the scala tools you are using or define these variables on the command line
-# ${SCALA_VERSION:=2.7.7}
-: ${SCALA_VERSION:=2.8.0.RC7}
-: ${VERSION:=1.1}
 
 if [ "$SAKE_HOME" = "" ] ; then
     SAKE_HOME=${0%bin/sake}
@@ -22,7 +16,7 @@ if [ "$SAKE_HOME" = "" ] ; then
     fi
     export SAKE_HOME=$(cd $SAKE_HOME; pwd)  # resolve to absolute... (TODO: a better way?)
 fi
-for lib in ${SAKE_HOME}/lib/*.jar ${SAKE_HOME}/lib/${SCALA_VERSION}/*.jar
+for lib in ${SAKE_HOME}/lib/*.jar
 do
     case "$lib" in
         *src.jar)
@@ -33,6 +27,16 @@ do
     esac
 done
 
+cygwin=false;
+case "`uname`" in
+    CYGWIN*) 
+        cygwin=true 
+        SAKE_HOME=`cygpath --$format "$SAKE_HOME"`
+        CLASSPATH=`cygpath --path --$format "$CLASSPATH"`
+        ;;
+esac
+
+export CLASSPATH
 file=sake.scala
 interactive="false"
 args[0]=-classpath
@@ -70,8 +74,7 @@ do
 			;;
 		-classpath)
 			shift
-			CLASSPATH=$CLASSPATH:$1
-			args[1]=$args[1]:$1
+			args[1]=$1:${args[1]}
 			;;
 		-*)
 			args[${#args[@]}]=$1
@@ -84,17 +87,6 @@ do
 	esac
 	shift
 done
-
-cygwin=false;
-case "`uname`" in
-    CYGWIN*) 
-        cygwin=true 
-        SAKE_HOME=`cygpath --$format "$SAKE_HOME"`
-        CLASSPATH=`cygpath --path --$format "$CLASSPATH"`
-        ;;
-esac
-
-export CLASSPATH
 
 if [ $interactive = "false" ]; then
     if [ "${#targets[@]}" == 0 ]; then
@@ -117,8 +109,8 @@ EOF
 }
 
 if [ $interactive = "true" ]; then
-    env SCALA_VERSION=$SCALA_VERSION VERSION=$VERSION scala ${args[@]} -i $file
+    scala ${args[@]} -i $file
 else
-    stdinput | env SCALA_VERSION=$SCALA_VERSION VERSION=$VERSION scala ${args[@]}
+    stdinput | scala ${args[@]}
 fi
 echo ""

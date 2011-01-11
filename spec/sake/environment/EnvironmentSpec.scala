@@ -1,21 +1,8 @@
 package sake.environment
 
-import sake.util.Path
 import org.specs._
 
 object EnvironmentSpec extends Specification { 
-
-    var cpflag:Boolean = _
-    
-    doBeforeSpec {
-        // Don't let CLASSPATH participate for most tests.
-        cpflag = Environment.combineCLASSPATHandSystemClassPath
-        Environment.combineCLASSPATHandSystemClassPath = false
-    }
-  
-    doAfterSpec {
-        Environment.combineCLASSPATHandSystemClassPath = cpflag
-    }
 
     def sysClassPath = {
         val sep = System.getProperty("path.separator")
@@ -33,36 +20,22 @@ object EnvironmentSpec extends Specification {
         }
         
         "return the system classpath converted to a Path" in {
-            ((new Environment()).classpath.elements) must containAll (sysClassPath)
+            new Environment().classpath mustEqual sysClassPath
         }        
         
         "return a Path with the elements in the same order as the original path" in {
-          ((new Environment()).classpath.elements) must containAll (sysClassPath)
+            new Environment().classpath mustEqual sysClassPath
         }        
         
         "be user changable, affecting the system path" in {
             val env = new Environment()
             env.classpath = "foo/bar" :: beforeCP
             if (Environment.environment.isWindows)
-            	env.classpath.elements must containAll ("foo\\bar" :: beforeCP)
+                env.classpath mustEqual ("foo\\bar" :: beforeCP)
             else
-            	env.classpath.elements must containAll ("foo/bar" :: beforeCP)
-            beforeCP  must beDifferent (sysClassPath)
-        }
-        
-        "remove duplicate entries, preserving priority order" in {
-          val env = new Environment()
-          env.classpath = sake.util.Path("foo/bar" :: "x/y" :: "x/y" :: "foo/bar" :: "baz/barf" :: Nil)(env.pathSeparator)
-          if (Environment.environment.isWindows)
-        	  env.classpath mustEqual (sake.util.Path("foo\\bar" :: "x\\y" :: "baz\\barf" :: Nil)(env.pathSeparator))
-          else
-        	  env.classpath mustEqual (sake.util.Path("foo/bar" :: "x/y" :: "baz/barf" :: Nil)(env.pathSeparator))
-        }
-        
-        "include the environment's CLASSPATH if Environment.combineCLASSPATHandSystemClassPath is true" in {
-          Environment.combineCLASSPATHandSystemClassPath = true
-          val env = new Environment()
-          env.classpath must beDifferent(sysClassPath)
+                env.classpath mustEqual ("foo/bar" :: beforeCP)
+            sysClassPath  must beDifferent(beforeCP)
+            sysClassPath  mustEqual env.classpath
         }
     }
     
@@ -109,7 +82,7 @@ object EnvironmentSpec extends Specification {
 
     "The System Environment Variables getter" should {
         "return the system environment, a map of defined variables" in {
-            val expected = Some(System.getenv.get("CLASSPATH"))
+            val expected = System.getenv.get("CLASSPATH")
             Environment.getSystemEnvironmentVariables.get("CLASSPATH") mustEqual expected
         }
     }

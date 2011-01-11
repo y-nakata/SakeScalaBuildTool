@@ -6,11 +6,8 @@ if "%SAKE_HOME%" == "" (
   set SAKE_HOME=%~dp0..
 )
 
-set SCALA_VERSION=2.8.1
-
 set SAKE_CLASSPATH=
 for %%f in ("%SAKE_HOME%\lib\*") do call :add_cpath "%%f"
-for %%f in ("%SAKE_HOME%\lib\%SCALA_VERSION%\*") do call :add_cpath "%%f"
 set CLASSPATH=%SAKE_CLASSPATH%;%CLASSPATH%
 
 set _INTERACTIVE=false
@@ -42,7 +39,7 @@ if (%_TARGET%)==() set _TARGET=all
 if (%_INTERACTIVE%) == (true) (
   scala -i %_SAKE_FILE%
 ) else ( 
-  %SAKE_HOME%\bin\sake_stdin.bat %_TARGET% |call scala -Xnojline -deprecation -unchecked
+  %SAKE_HOME%\bin\sake_stdin.bat %_TARGET% |scala -Xnojline 
 )
 
 @endlocal

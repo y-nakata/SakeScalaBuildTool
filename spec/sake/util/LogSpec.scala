@@ -87,7 +87,7 @@ object LogSpec extends Specification {
             var called = false
             val messageFormatter = (l:Level.Value, m:String) => { called = true; "" }
             val l = new Log(Level.Warn, newStream, messageFormatter)
-            for (level <- Level.values) {
+            for (level <- Level) {
                 called = false
                 l(level, "")
                 called mustEqual level >= Level.Warn

@@ -13,7 +13,7 @@ class FilesFinder() {
         
         specs.foldLeft(List[String]()) { (all, spec) =>
             findFiles(spec) ::: all
-        }.distinct.reverse
+        }.removeDuplicates.reverse
     }
     
     protected def findFiles(spec: String):List[String] = {
@@ -78,7 +78,7 @@ class FilesFinder() {
 
     def makeSystemPath(path:String):String = {
       val file = new JavaFileWrapper(path)
-      file.javaFile.getPath()         
+      file.getPath()         
     }
 
     def exists(file: File):Boolean = file.exists

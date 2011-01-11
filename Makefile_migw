@@ -1,6 +1,5 @@
-SCALA_VERSION=2.8.1
 
-CLASSPATH=lib/${SCALA_VERSION}/specs_2.8.1-1.6.6.jar;lib/junit-4.5.jar;lib/${SCALA_VERSION}/embedded-interpreter-0.1-2.8.0.jar
+CLASSPATH=lib/specs-1.5.0.jar;lib/junit-4.5.jar;lib/embedded-interpreter-0.1-SNAPSHOT.jar
 
 all: clean compile test jar
 
@@ -24,4 +23,4 @@ lib_dir:
 	mkdir -p lib
 
 remove_jar:
-	rm -f lib/sake.jar
+	rm -f lib/sake.jar    

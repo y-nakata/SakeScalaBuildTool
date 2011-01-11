@@ -2,8 +2,8 @@ package sake.command.builtin
 
 import org.specs._ 
 import sake.util._
-import sake.command._
 import sake.environment.Environment._
+import java.io.{File => JFile}
 
 object SpecCommandSpec extends Specification {
     def makeTestSpecCommand(expectedPath: String, expectedPattern: String) = {
@@ -44,29 +44,21 @@ object SpecCommandSpec extends Specification {
         }
     }
     
-    // TODO figure out why this fails, even though running the same
-    // code at the Scala prompt (after importing ...) works fine.
-    // "Invoking a failing spec" should {
-    //     "throw a BuildError" in {
-    //       try {
-    //         new SpecCommand() (
-    //             'classpath -> environment.classpath,
-    //             'path -> "./spec/**/*.scala",
-    //             'pattern -> "FailingSpek"
-    //         ) //must throwA[BuildError]
-    //       } catch {
-    //         case th => th.isInstanceOf[BuildError] must beTrue
-    //       }
-    //       fail("Should have thrown a BuildError")
-    //     }
-    // }
+    "Invoking a failing spec" should {
+        "throw a build error" in {
+            new SpecCommand() (
+                'classpath -> environment.classpath,
+                'path -> new JFile("./spec/**/*.scala").getPath,
+                'pattern -> "FailingSpek"
+            ) must throwA[BuildError]
+        }
+    }
     
-    "Invoking a passing spec" should {
+    "Invoking a failing specs" should {
         "return Passed" in {
             new SpecCommand() (
-                'path -> "./spec/**/*.scala",
-                'pattern -> "PassingSpek"
-            ).success must beTrue
+                'path -> new JFile("./spec/**/*.scala").getPath,
+                'pattern -> "PassingSpek").success must beTrue
         }
     }
 }

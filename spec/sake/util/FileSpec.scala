@@ -273,7 +273,7 @@ object FileSpec extends Specification {
         val reader = new JBufferedReader(f2.reader)
         reader.readLine() mustEqual "hello world!"
         reader.close()
-        f2.delete mustEqual true
+        f2.delete() mustEqual true
     }
     
     "File.writer" should {
