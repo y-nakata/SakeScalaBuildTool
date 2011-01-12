@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d7933f28-e2b4-43cf-8f1f-f7a25bd9669f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/2.8.1/sake-2.8.1-1.1-src.jar" afterPath="$PROJECT_DIR$/lib/2.8.1/sake-2.8.1-1.1-src.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/2.8.1/sake-2.8.1-1.1.jar" afterPath="$PROJECT_DIR$/lib/2.8.1/sake-2.8.1-1.1.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Makefile_migw" afterPath="$PROJECT_DIR$/Makefile_migw" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Sake.iws" afterPath="$PROJECT_DIR$/Sake.iws" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/sake/command/builtin/JVMCommandSpec.scala" afterPath="$PROJECT_DIR$/spec/sake/command/builtin/JVMCommandSpec.scala" />
     </list>
     <ignored path="Sake.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -139,28 +137,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PathSpec.scala" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/spec/sake/util/PathSpec.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="7" selection-start="199" selection-end="199" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Environment.scala" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sake/environment/Environment.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="114" column="0" selection-start="3901" selection-end="3901" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="JVMCommandSpec.scala" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="JVMCommandSpec.scala" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/spec/sake/command/builtin/JVMCommandSpec.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="48" column="76" selection-start="1712" selection-end="1712" vertical-scroll-proportion="0.6352313">
+            <state line="48" column="76" selection-start="1712" selection-end="1712" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -169,16 +149,16 @@
       <file leaf-file-name="CommandRunnerSpec.scala" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/spec/sake/command/CommandRunnerSpec.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="140" column="0" selection-start="5728" selection-end="5728" vertical-scroll-proportion="0.0">
+            <state line="129" column="18" selection-start="5274" selection-end="5274" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Path.scala" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Path.scala" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/sake/util/Path.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="85" column="20" selection-start="2712" selection-end="2712" vertical-scroll-proportion="0.0">
+            <state line="72" column="2" selection-start="2201" selection-end="2201" vertical-scroll-proportion="0.62222224">
               <folding />
             </state>
           </provider>
@@ -198,7 +178,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/sake/util/Path.scala" />
         <option value="$PROJECT_DIR$/Makefile_migw" />
         <option value="$PROJECT_DIR$/bin/cat_cmd.bat" />
         <option value="$PROJECT_DIR$/spec/sake/command/ShellCommandSpec.scala" />
@@ -209,6 +188,7 @@
         <option value="$PROJECT_DIR$/bin/sake" />
         <option value="$PROJECT_DIR$/spec/sake/command/builtin/JVMCommandSpec.scala" />
         <option value="$PROJECT_DIR$/sake.log" />
+        <option value="$PROJECT_DIR$/src/sake/util/Path.scala" />
       </list>
     </option>
   </component>
@@ -483,9 +463,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
-      <pane id="Favorites" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -517,6 +494,10 @@
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sake" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -528,28 +509,105 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="bin" />
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sake" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="util" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Sake" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="y-nakata_SakeScalaBuildTool" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sake" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="util" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Path.scala" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Sake" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="y-nakata_SakeScalaBuildTool" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sake" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="environment" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Environment.scala" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Sake" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="y-nakata_SakeScalaBuildTool" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="Favorites" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="80" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="100" />
     <property name="project.structure.proportion" value="0.15" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="100" />
     <property name="options.splitter.main.proportions" value="0.19382022" />
-    <property name="recentsLimit" value="5" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="92" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
     <property name="MemberChooser.sorted" value="false" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="92" />
+    <property name="recentsLimit" value="5" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="147" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="854" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="892" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="854" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="101" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="96" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
@@ -581,7 +639,13 @@
       <option name="PASS_PARENT_ENVS" value="true" />
       <module name="Sake" />
       <envs />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="52253" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
       <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Debug" />
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
@@ -754,9 +818,9 @@
       <window_info id="Test Runs" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="CheckStyle" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven-2 Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="CheckStyle" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.44084278" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32901135" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -806,11 +870,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/sake/util/SymbolUtil.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="23" selection-start="177" selection-end="177" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sake.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state line="39" column="15" selection-start="1634" selection-end="1634" vertical-scroll-proportion="0.0" />
@@ -836,6 +895,26 @@
         <state line="26" column="12" selection-start="1584" selection-end="1584" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/bin/build.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="9" selection-start="9" selection-end="9" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spec/sake/util/FileSpec.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="9" selection-start="553" selection-end="553" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spec/sake/util/PathSpec.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="7" selection-start="199" selection-end="199" vertical-scroll-proportion="-2.4991453" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sake.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1006" column="0" selection-start="38874" selection-end="38874" vertical-scroll-proportion="7.100182" />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/bin/sake">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="20" selection-start="19" selection-end="19" vertical-scroll-proportion="0.0" />
@@ -846,48 +925,33 @@
         <state line="106" column="7" selection-start="3159" selection-end="3159" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bin/build.sh">
+    <entry file="file://$PROJECT_DIR$/spec/sake/command/builtin/JVMCommandSpec.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="9" selection-start="9" selection-end="9" vertical-scroll-proportion="0.0" />
+        <state line="48" column="76" selection-start="1712" selection-end="1712" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spec/sake/util/PathSpec.scala">
+    <entry file="jar://D:/scala-2.8.1.final/src/scala-library-src.jar!/scala/collection/MapLike.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="7" selection-start="199" selection-end="199" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spec/sake/util/FileSpec.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="9" selection-start="553" selection-end="553" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spec/sake/command/CommandRunnerSpec.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="140" column="0" selection-start="5728" selection-end="5728" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sake/util/Path.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="85" column="20" selection-start="2712" selection-end="2712" vertical-scroll-proportion="0.0" />
+        <state line="118" column="6" selection-start="4243" selection-end="4243" vertical-scroll-proportion="0.9679715">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sake/environment/Environment.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="114" column="0" selection-start="3901" selection-end="3901" vertical-scroll-proportion="0.0">
+        <state line="78" column="89" selection-start="2789" selection-end="2789" vertical-scroll-proportion="0.38636363">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sake.log">
+    <entry file="file://$PROJECT_DIR$/spec/sake/command/CommandRunnerSpec.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1006" column="0" selection-start="38874" selection-end="38874" vertical-scroll-proportion="29.943533">
-          <folding />
-        </state>
+        <state line="129" column="18" selection-start="5274" selection-end="5274" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spec/sake/command/builtin/JVMCommandSpec.scala">
+    <entry file="file://$PROJECT_DIR$/src/sake/util/Path.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="48" column="76" selection-start="1712" selection-end="1712" vertical-scroll-proportion="0.6352313">
+        <state line="72" column="2" selection-start="2201" selection-end="2201" vertical-scroll-proportion="0.62222224">
           <folding />
         </state>
       </provider>

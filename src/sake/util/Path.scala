@@ -63,14 +63,14 @@ class Path(elems: Seq[Any])(implicit val separator: String) {
      * Join into a {@ link separator} separated string, with element converted to a string.
      */
     def joined: String = {
-        val strings = elements.map(_.toString()).map(new JavaFileWrapper(_).javaFile.getPath().toString())
+        val strings = elements.map(s => new JavaFileWrapper(s.toString()).javaFile.getPath().toString())
         strings.length match {
             case 0 => ""
             case _ => strings.reduceLeft(_ + separator + _)
         }
     }
     
-    override def toString() = if (Environment.environment.isWindows && joined.contains(" ")) "\"" + joined + "\"" else joined
+    override def toString() = if (Environment.environment.isWindows) "\"" + joined + "\"" else joined
     
     override def equals(other: Any) = other match {
         case p:Path => p.isInstanceOf[Path] && (elements == p.elements) && (separator == p.separator)

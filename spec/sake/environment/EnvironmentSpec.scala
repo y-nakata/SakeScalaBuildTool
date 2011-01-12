@@ -44,9 +44,9 @@ object EnvironmentSpec extends Specification {
             val env = new Environment()
             env.classpath = "foo/bar" :: beforeCP
             if (Environment.environment.isWindows)
-            	env.classpath.elements must containAll ("foo\\bar" :: beforeCP)
+                env.classpath.elements must containAll ("foo\\bar" :: beforeCP)
             else
-            	env.classpath.elements must containAll ("foo/bar" :: beforeCP)
+                env.classpath.elements must containAll ("foo/bar" :: beforeCP)
             beforeCP  must beDifferent (sysClassPath)
         }
         
